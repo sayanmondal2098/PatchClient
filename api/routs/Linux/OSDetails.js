@@ -4,6 +4,10 @@ const router = express();
 const os = require('os');
 
 
+const Client = require('../../../model/Client');
+const promisifyClient = new Client();    
+
+
 router.get('/oscpus', (req, res) => {
     res.json(os.cpus());
     console.log(os.cpus());
@@ -59,6 +63,13 @@ router.get('/sysDetails', (req, res) => {
 router.get('/userInfo', (req, res) => {
     res.json(os.userInfo());
     console.log(os.userInfo());
+});
+
+
+router.get('/hostname', (req, res) => {
+    promisifyClient.sendMessage(os.userInfo().username)  
+    console.log(os.networkInterfaces())
+.catch((err) => console.error(err)); 
 });
 
 module.exports = router;

@@ -5,7 +5,7 @@ const os = require('os');
 
 
 const Client = require('../../../model/Client');
-const promisifyClient = new Client();    
+const promisifyClient = new Client();
 
 
 router.get('/oscpus', (req, res) => {
@@ -35,26 +35,26 @@ router.get('/networkinterfaces', (req, res) => {
 
 
 router.get('/sysDetails', (req, res) => {
-    res.status(200).json({ 
-        "OS Platform" : os.platform(),
-        "OS Release" : os.release(),
-        "OS Version" : os.version(),
-        "OS Type" : os.type(),
-        "OS Architecture" : os.arch(),
-        "OS Hostname" : os.hostname(),
-        "OS Uptime" : os.uptime(),
-        "OS Total Memory" : os.totalmem(),
-        "OS Free Memory" : os.freemem(),
-        "OS CPU Count" : os.cpus().length,
-        "OS CPU Model" : os.cpus()[0].model,
-        "OS CPU Speed" : os.cpus()[0].speed,
-        "OS CPU Cores" : os.cpus()[0].cores,
-        "OS CPU Load Average" : os.loadavg(),
-        "OS CPU Total Memory" : os.totalmem(),
-        "OS CPU Free Memory" : os.freemem(),
-        "OS CPU Free Memory" : os.freemem(), 
-        "OS Temp dir" : os.tmpdir()
-    }); 
+    res.status(200).json({
+        "OS Platform": os.platform(),
+        "OS Release": os.release(),
+        "OS Version": os.version(),
+        "OS Type": os.type(),
+        "OS Architecture": os.arch(),
+        "OS Hostname": os.hostname(),
+        "OS Uptime": os.uptime(),
+        "OS Total Memory": os.totalmem(),
+        "OS Free Memory": os.freemem(),
+        "OS CPU Count": os.cpus().length,
+        "OS CPU Model": os.cpus()[0].model,
+        "OS CPU Speed": os.cpus()[0].speed,
+        "OS CPU Cores": os.cpus()[0].cores,
+        "OS CPU Load Average": os.loadavg(),
+        "OS CPU Total Memory": os.totalmem(),
+        "OS CPU Free Memory": os.freemem(),
+        "OS CPU Free Memory": os.freemem(),
+        "OS Temp dir": os.tmpdir()
+    });
     console.log("os sysDetails called");
 });
 
@@ -65,9 +65,8 @@ router.get('/userInfo', (req, res) => {
 
 
 router.get('/hostname', (req, res) => {
-    promisifyClient.sendMessage(os.userInfo().username)  
+    promisifyClient.sendMessage(os.userInfo().username)
     console.log(os.networkInterfaces())
-.catch((err) => console.error(err)); 
 });
 
 module.exports = router;

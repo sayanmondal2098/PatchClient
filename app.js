@@ -14,7 +14,15 @@ app.use('/RunLinuxOSCommand', RunLinuxOSCommand);
 
 app.use((req, res, next) => {
    res.status(200).json({ 
-       "message" : "It works!"
+    "message": "It works!",
+    "App Name": app.name,
+    "App Host-Port": req.get('host'),
+    "App Mode": req.get('env'),
+    "App URL": req.protocol + '://' + req.get('host') + req.originalUrl,
+    "App Method": req.method,
+    "App Path": req.path,
+    "App Query": req.query,
+    "App Body": req.body
 
    }); 
 });

@@ -1,6 +1,6 @@
 const net = require('net');
-const PORT = 1234;
-const HOST = 'localhost'; 
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 class Client {
     constructor(port, address) {
         this.socket = new net.Socket();

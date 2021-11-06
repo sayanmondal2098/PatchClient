@@ -35,8 +35,6 @@ router.get('/networkinterfaces', (req, res) => {
 
 
 router.get('/sysDetails', (req, res) => {
-
-
     res.status(200).json({ 
         "OS Platform" : os.platform(),
         "OS Release" : os.release(),

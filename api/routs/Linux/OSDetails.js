@@ -3,6 +3,8 @@ const router = express();
 
 const os = require('os');
 
+// Get OS Details
+// @route   GET /api/routs/Linux/OSDetails
 
 const Client = require('../../../model/Client');
 const promisifyClient = new Client();

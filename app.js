@@ -23,7 +23,6 @@ app.use((req, res, next) => {
     "App Path": req.path,
     "App Query": req.query,
     "App Body": req.body
-
    }); 
 });
 

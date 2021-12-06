@@ -13,16 +13,19 @@ const promisifyClient = new Client();
 router.get('/oscpus', (req, res) => {
     res.json(os.cpus());
     console.log(os.cpus());
+    promisifyClient.sendMessage(os.cpus().toString());
 });
 
 router.get('/freemem', (req, res) => {
     res.json(os.freemem());
     console.log(os.freemem());
+    promisifyClient.sendMessage(os.freemem().toString());
 });
 
 router.get('/homedir', (req, res) => {
     res.json(os.homedir());
     console.log(os.homedir());
+    promisifyClient.sendMessage(os.homedir().toString());
 });
 
 router.get('/loadavg', (req, res) => {
@@ -32,9 +35,9 @@ router.get('/loadavg', (req, res) => {
 });
 
 router.get('/networkinterfaces', (req, res) => {
-    var t = res.json(os.networkInterfaces());
+    res.json(os.networkInterfaces());
     console.log(os.networkInterfaces());
-    promisifyClient.sendMessage(t.toString());
+    promisifyClient.sendMessage(os.networkInterfaces().toString());
 });
 
 
@@ -65,12 +68,15 @@ router.get('/sysDetails', (req, res) => {
 router.get('/userInfo', (req, res) => {
     res.json(os.userInfo());
     console.log(os.userInfo());
+    promisifyClient.sendMessage(os.userInfo().toString());
 });
 
 
 router.get('/hostname', (req, res) => {
-    promisifyClient.sendMessage(os.userInfo().username)
-    console.log(os.networkInterfaces())
+    res.json(os.hostname());
+    console.log(os.hostname());
+    promisifyClient.sendMessage(os.hostname().toString());
+
 });
 
 module.exports = router;

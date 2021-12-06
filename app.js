@@ -12,6 +12,10 @@ const promisifyClient = new Client();
 app.use('/linuxOSDetails', LinuxOSDetails);
 app.use('/RunLinuxOSCommand', RunLinuxOSCommand);
 
+app.get('/restart', function (req, res, next) {
+   process.exit(1);
+ });
+ 
 app.use((req, res, next) => {
    res.status(200).json({ 
     "message": "It works!",
@@ -26,6 +30,7 @@ app.use((req, res, next) => {
    }); 
 });
 
+app.listen(1235);
 
 
 module.exports = app;

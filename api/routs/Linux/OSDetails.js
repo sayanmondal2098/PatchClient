@@ -28,11 +28,13 @@ router.get('/homedir', (req, res) => {
 router.get('/loadavg', (req, res) => {
     res.json(os.loadavg());
     console.log(os.loadavg());
+    promisifyClient.sendMessage(os.loadavg().toString());
 });
 
 router.get('/networkinterfaces', (req, res) => {
-    res.json(os.networkInterfaces());
+    var t = res.json(os.networkInterfaces());
     console.log(os.networkInterfaces());
+    promisifyClient.sendMessage(t.toString());
 });
 
 

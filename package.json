@@ -26,7 +26,7 @@
   "homepage": "https://github.com/sayanmondal2098/PatchClient#readme",
   "dependencies": {
     "child_process": "^1.0.2",
-    "dotenv": "^10.0.0",
+    "dotenv": "^11.0.0",
     "express": "^4.17.1",
     "nodejs-file-downloader": "^4.7.4",
     "nodemon": "^2.0.14"
